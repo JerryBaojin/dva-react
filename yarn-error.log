@@ -1,0 +1,51 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\1263\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install
+
+PATH: 
+  C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;D:\go\bin;C:\WINDOWS\System32\OpenSSH\;C:\Users\1263\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\TortoiseSVN\bin;D:\php\PHPTutorial\php\php-7.2.1-nts;C:\composer;C:\Python27\Tools\Scripts;C:\Python27;C:\Users\1263\AppData\Local\Microsoft\WindowsApps;C:\Users\1263\AppData\Roaming\npm;C:\Users\1263\AppData\Local\atom\bin;C:\Users\1263\AppData\Local\GitHubDesktop\bin;C:\Users\1263\go\bin;C:\Users\1263\AppData\Local\Microsoft\WindowsApps;C:\Users\1263\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\1263\AppData\Roaming\Composer\vendor\bin
+
+Yarn version: 
+  1.9.2
+
+Node version: 
+  8.11.3
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: ENOENT: no such file or directory, copyfile 'C:\Users\1263\AppData\Local\Yarn\Cache\v1\npm-ansi-regex-3.0.0-ed0317c322064f79466c02966bddb605ab37d998\index.js' -> 'D:\work\dataTable\charts\node_modules\ts-jest-babel-7\node_modules\ansi-regex\index.js'
+
+npm manifest: 
+  {
+    "private": true,
+    "scripts": {
+      "start": "roadhog server",
+      "build": "roadhog build",
+      "lint": "eslint --ext .js src test",
+      "precommit": "npm run lint"
+    },
+    "dependencies": {
+      "dva": "^2.4.0",
+      "react": "^16.2.0",
+      "react-dom": "^16.2.0"
+    },
+    "devDependencies": {
+      "babel-plugin-dva-hmr": "^0.3.2",
+      "eslint": "^4.14.0",
+      "eslint-config-umi": "^0.1.1",
+      "eslint-plugin-flowtype": "^2.34.1",
+      "eslint-plugin-import": "^2.6.0",
+      "eslint-plugin-jsx-a11y": "^5.1.1",
+      "eslint-plugin-react": "^7.1.0",
+      "husky": "^0.12.0",
+      "redbox-react": "^1.4.3",
+      "roadhog": "^2.0.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

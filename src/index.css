@@ -1,0 +1,25 @@
+@font-face {
+    /* font-properties */
+    font-family: DIGIT;
+    src:url('./assets/DS-DIGIT.TTF');
+}
+
+html, body, :global(#root) {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color:white;
+  overflow-x: hidden;
+}
+:global(div){
+      box-sizing: border-box;
+}
+:global(li){
+  list-style: none;
+}
+:global(.boxShadow){
+  background: rgba(13,26,65,0.30);
+  border: 1px solid rgba(34,165,247,0.30);
+  box-shadow: inset 0 0 20px 0 rgba(64,169,255,0.30);
+  border-radius: 2px;
+}
