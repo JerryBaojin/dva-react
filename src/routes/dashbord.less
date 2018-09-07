@@ -6,31 +6,32 @@
 }
 @firstChildDiv:&>div:nth-child(1);
 
-.HeadPart div:nth-child(1),div:nth-child(3){
-
-  >div:nth-child(1){
-    height: 150px;
-  }
-  &>div:nth-child(3){
-
-  }
-}
-.HeadPart>div:nth-child(1){
-  >div{
-      align-self: flex-start;
-  }
-}
-.Float{
-  display: flex;
-  flex-direction: column;
-  >div{
-        align-self: flex-end;
-  }
-}
 
 .container{
   max-width: 1860px;
   margin: 20px auto;
+  .HeadPart div:nth-child(1),div:nth-child(3){
+
+    >div:nth-child(1){
+      height: 150px;
+    }
+    &>div:nth-child(3){
+
+    }
+  }
+  .HeadPart>div:nth-child(1){
+    >div{
+        align-self: flex-start;
+    }
+  }
+  .Float{
+    display: flex;
+    flex-direction: column;
+    >div{
+          align-self: flex-end;
+    }
+  }
+
   .HeadPart{
     display: flex;
 
@@ -49,4 +50,88 @@
   display: flex;
   margin-top: 20px;
   justify-content: space-between;
+}
+.ca{
+    display: flex;
+    flex-direction: column;
+    height: 380px;
+    div{
+      flex: 1;
+    }
+    &>div:nth-child(1){
+          border-bottom: 1px dashed #22A5F7;
+            margin: 0 10px;
+    }
+    ul{
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-self: center;
+
+
+          li{
+            flex: 1;
+            text-align: center;
+            align-self: center;
+
+          }
+
+    }
+}
+
+.PopArea{
+    width: 100%;
+    svg{
+      width: 100%;
+    }
+}
+.common{
+  width: 70px !important;
+  height: 70px !important;
+  color: #ffffff;
+}
+
+.dirProgress{
+  &:extend(.common);
+  div{
+    &:extend(.common);
+  }
+
+}
+.ant-progress-circle .ant-progress-text{
+  color: #ffffff !important;
+}
+.ca span{
+  font-family: PingFangSC-Medium;
+  font-size: 20px;
+  color: #22A5F7 !important;
+  letter-spacing: 0;
+}
+.containerA{
+  height: 300px;
+}
+.Items{
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  span:nth-child(1){
+    margin-right: 40px;
+  }
+}
+.MainBox{
+  height: 100%;
+  margin-left: 30px;
+  margin-top: 20px;
+}
+.Table{
+  height: 300px;
+  margin-left: -12px;
+
+  div{
+    height: 100%;
+    canvas{
+      height: 100%;
+    }
+  }
 }

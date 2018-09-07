@@ -15,10 +15,10 @@ export default class box extends React.Component {
   }
   render(){
     const {BoxStyle,leftText,showRight}=this.props;
-    console.log(showRight)
+
     return(
       <div style={BoxStyle} className={`${styles.marginTop} boxShadow`}>
-        <div>
+        <div style={{height:"48px"}}>
           <span>{leftText}</span>
           {showRight?
             <span>交易时期</span>

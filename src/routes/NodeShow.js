@@ -53,22 +53,24 @@ export default class NodeShow extends React.Component{
               <div className={`boxShadow ${styles.map}`}>2</div>
             </div>
 
-            <div>
+            <div className={styles.fRight}>
                 <ContainerBox {...DataSourceOne}>
                   <div>
                     <ol>
                       <li>1</li>
+                      <li>1</li>
+                      
                     </ol>
                   </div>
                 </ContainerBox>
-                <ContainerBox props={...DataSourceOne,leftText:"同步节点"}>
+                <ContainerBox {...DataSourceOne}leftText={"同步节点"}>
                   <div>
                     <ol>
                       <li>1</li>
                     </ol>
                   </div>
                 </ContainerBox>
-                <ContainerBox {...DataSourceOne,leftText:"待同步节点"}>
+                <ContainerBox {...DataSourceOne} leftText={"待同步节点"}>
                   <div>
                     <ol>
                       <li>1</li>
