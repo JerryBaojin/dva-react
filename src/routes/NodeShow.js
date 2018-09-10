@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './NodeShow.less';
 import ContainerBox from '../components/component/containerBox/container';
+import WorldMap from "../components/component/WorldMap/WorldMap";
 export default class NodeShow extends React.Component{
 
   getStackInfos(){
@@ -50,7 +51,9 @@ export default class NodeShow extends React.Component{
                   })}
                   </ul>
               </div>
-              <div className={`boxShadow ${styles.map}`}>2</div>
+              <div className={`boxShadow ${styles.map}`}>
+                <WorldMap/>
+              </div>
             </div>
 
             <div className={styles.fRight}>
@@ -59,7 +62,7 @@ export default class NodeShow extends React.Component{
                     <ol>
                       <li>1</li>
                       <li>1</li>
-                      
+
                     </ol>
                   </div>
                 </ContainerBox>

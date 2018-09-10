@@ -10,15 +10,15 @@ const option = {
             show: false
         },
         axisLabel : {
-                    // interval:3,
+          // interval:3,
 
 
-                        textStyle: {
-                          fontFamily: "PingFangSC-Regular",
-                            opacity:0.4,
-                            color: '#FFFFFF'
-                        }
-                    },
+              textStyle: {
+                fontFamily: "PingFangSC-Regular",
+                  opacity:0.4,
+                  color: '#FFFFFF'
+              }
+          },
 
     },
     yAxis: {

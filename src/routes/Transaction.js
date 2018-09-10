@@ -89,7 +89,7 @@ class Transaction extends  React.Component {
   //str.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
   tradeInfos(){
     const datas=[];
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 18; i++) {
       datas.push({
         time:"2018/08/31",
         company:"bibibib",
@@ -102,6 +102,9 @@ class Transaction extends  React.Component {
   }
   handToCheck(val){
     console.log(val)
+  }
+  handleC(){
+    console.log("paratre")
   }
   render(){
 
@@ -141,7 +144,7 @@ class Transaction extends  React.Component {
             </ul>
           </div>
           <div className={styles.transationTable}>
-            <ContainerBox {...childPropsOne}>
+            <ContainerBox {...childPropsOne} HandleChangeType={(val)=>this.handleC(val)}>
               <div>
                 <ZxT width={"100%"} height={"280px"}/>
               </div>
@@ -168,7 +171,7 @@ class Transaction extends  React.Component {
                     <li>操作</li>
                   </ul>
                 </div>
-                <div className={styles.datas}>
+                <div className={`${styles.datas} scrollbar`}>
                   {this.tradeInfos().map((val,index)=>{
                     return <div className={styles.tradeInfos} key={index}>
                                 <div>{val.time}</div>

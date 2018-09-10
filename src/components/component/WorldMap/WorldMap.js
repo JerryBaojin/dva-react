@@ -1,5 +1,7 @@
 import React  from 'react';
 import echarts from 'echarts';
+import axios from 'axios';
+require('echarts/map/js/world.js');
 
 export default class WorldMap extends  React.Component{
   constructor(props) {
@@ -7,17 +9,15 @@ export default class WorldMap extends  React.Component{
   }
   static defaultProps={
     style:{
-      width:"800px",
-      height:"800px"
+      width:"100%",
+      height:"100%"
     }
 
   }
   componentDidMount(){
-  // const wo=  document.createElement('script');
-  // wo.type="text/javascript";
-  // wo.src="http://gallery.echartsjs.com/dep/echarts/map/js/world.js";
-  // document.body.appendChild(wo);
-  // 获取echarts的容器
+      // axios.get("/api/atlas/getAllAtlas").then(res=>{
+      //   console.log(res)
+      // })
           var chart = echarts.init(document.getElementById("mainMap"));
 
           /*
@@ -227,7 +227,8 @@ export default class WorldMap extends  React.Component{
                   roam: false,        // 禁止缩放平移
                   itemStyle: {        // 每个区域的样式
                       normal: {
-                          areaColor: '#323c48'
+                          areaColor: 'rgba(0,0,0,0)',
+                          borderColor:"#22A5F7"
                       },
                       emphasis: {
                           areaColor: '#2a333d'
@@ -238,12 +239,12 @@ export default class WorldMap extends  React.Component{
                       selected: true,
                       itemStyle: {   // 高亮时候的样式
                           emphasis: {
-                              areaColor: '#7d7d7d'
+                              areaColor: 'rgba(0,0,0,0)'
                           }
                       },
                       label: {    // 高亮的时候不显示标签
                           emphasis: {
-                              show: false
+                              show: true
                           }
                       }
                   }]
@@ -257,7 +258,7 @@ export default class WorldMap extends  React.Component{
   render(){
     return(
 
-          <div id="mainMap" style={{width:"800px",height:"800px"}}></div>
+          <div id="mainMap" style={{width:"100%",height:"100%"}}></div>
 
     )
   }

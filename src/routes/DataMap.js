@@ -4,12 +4,9 @@ import { NodeDatas } from "../components/component/dataBox/Node";
 import { Select } from 'antd';
 import TreeMap from '../components/component/treeTable/treeTable';
 
-
 import ContainerBox from '../components/component/containerBox/container';
 
-
 const { Option, OptGroup } = Select;
-
 function handleChange(value) {
   console.log(`selected ${value}`);
 }

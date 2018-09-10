@@ -10,7 +10,6 @@ import DataMap from './routes/DataMap';
 
 import AccountInfos from './routes/AccountInfos';
 
-import WorldMap from "./components/component/WorldMap/WorldMap";
 
 function RouterConfig({ history }) {
   return (
@@ -26,7 +25,7 @@ function RouterConfig({ history }) {
         <Route path="/BlockShow" exact component={BlockShow} />
         <Route path="/datamap" exact component={DataMap} />
 
-          <Route path="/test" exact component={WorldMap} />
+
       </Switch>
       </div>
     </Router>

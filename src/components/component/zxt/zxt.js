@@ -2,26 +2,17 @@ import React  from 'react';
 import echarts from 'echarts';
 import styles from "./zxt.less";
 function randomData() {
-    now = new Date(+now + oneDay);
-    value = value + Math.random() * 21 - 10;
     return {
-        name: now.toString(),
         value: [
-            [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'),
-            Math.round(value)
+            Math.round(Math.random()*1000)
         ]
     }
 }
-
-var data = [];
-var now = +new Date(1997, 9, 3);
-var oneDay = 24 * 3600 * 1000;
-var value = Math.random() * 1000;
-for (var i = 0; i < 1000; i++) {
-    data.push(randomData());
+let data=[];
+for (var i = 0; i < 11; i++) {
+  data.push(Math.round(Math.random()*1000))
 }
 const option = {
-
     grid: {
         left: '3%',
         right: '4%',
@@ -30,18 +21,20 @@ const option = {
     },
     tooltip: {
         trigger: 'axis',
-        formatter: function (params) {
-            params = params[0];
-            var date = new Date(params.name);
-            let s="<div>"+ params.value[1]+"</div>";
-            return s;
-        },
+        // formatter: function (params) {
+        //     params = params[0];
+        //     var date = new Date(params.name);
+        //     let s="<div>"+ params.value[1]+"</div>";
+        //     return s;
+        // },
         axisPointer: {
             animation: false
         }
     },
     xAxis: {
-        type: 'time',
+
+        type: 'category',
+         data: ['00:00','02:00','04:00','08:00','10:00','12:00','14:00','16:00','18:00','20:00','22:00'],
         splitLine: {
             show: false
         },
@@ -51,16 +44,15 @@ const option = {
             axisLine:{
               lineStyle:{
                 opacity: 0.1,
-
                 color:"#FFFFFF"
               }
             },
             axisLabel: {
-                             show: true,
-                             textStyle: {
-                                 color: '#FFFFFF'
-                             }
-                         }
+                       show: true,
+                       textStyle: {
+                           color: '#FFFFFF'
+                       }
+                   }
     },
     yAxis: {
         show:false,
@@ -77,11 +69,7 @@ const option = {
         }
     },
     series: [
-
       {
-
-    
-        name: '模拟数据',
         type: 'line',
         showSymbol: false,
         hoverAnimation: false,
@@ -104,19 +92,19 @@ export default class TablesChart extends  React.Component{
   componentDidMount(){
     var myChart = echarts.init(document.getElementById('zxt'));
     myChart.setOption(option);
-    setInterval(function () {
-
-        for (var i = 0; i < 5; i++) {
-            data.shift();
-            data.push(randomData());
-        }
-
-        myChart.setOption({
-            series: [{
-                data: data
-            }]
-        });
-    }, 1000);
+    // setInterval(function () {
+    //
+    //     for (var i = 0; i < 5; i++) {
+    //       console.log(data.shift())
+    //         data.push(randomData());
+    //     }
+    //
+    //     myChart.setOption({
+    //         series: [{
+    //             data: data
+    //         }]
+    //     });
+    // }, 1000000);
   }
   render(){
 

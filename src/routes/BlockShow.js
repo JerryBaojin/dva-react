@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './BlockShow.less';
 import { NodeDatas } from "../components/component/dataBox/Node";
 import ContainerBox from '../components/component/containerBox/container';
+import PupleTable from '../components/component/PupleTable/PupleTable'
 const DataSourceOne={
   BoxStyle:{
     width:"100%",
@@ -32,7 +33,7 @@ export default class BlockShow extends React.Component {
   }
   tradeInfos(){
     const datas=[];
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 18; i++) {
       datas.push({
         time:"2018/08/31",
         company:"bibibib",
@@ -51,7 +52,7 @@ export default class BlockShow extends React.Component {
         <div className={`container ${styles.BlockShow}`}>
             <div>
                   <ContainerBox {...DataSourceOne}>
-                  1244
+                        <PupleTable/>
                   </ContainerBox>
             </div>
 
@@ -67,7 +68,7 @@ export default class BlockShow extends React.Component {
                       <li>操作</li>
                     </ul>
                   </div>
-                  <div className={styles.datas}>
+                  <div className={`${styles.datas} scrollbar`}>
                     {this.tradeInfos().map((val,index)=>{
                       return <div className={styles.tradeInfos} key={index}>
                                   <div>{val.time}</div>

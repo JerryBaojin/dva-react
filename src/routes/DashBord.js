@@ -2,13 +2,13 @@ import React from 'react';
 import styles from "./dashbord.less";
 import { NodeDatas } from "../components/component/dataBox/Node";
 import ContainerBox from '../components/component/containerBox/container';
-import { connect } from 'dva';
+
 import {Progress} from 'antd';
 import TradTables from "../components/component/TablesChart/TablesChart";
 import ZxT from "../components/component/zxt/zxt";
 import ReactBubbleChart from "react-d3-bubbles";
 import WorldMap from "../components/component/WorldMap/WorldMap";
-
+import { connect } from 'dva';
 
 const data = [
   {
@@ -122,7 +122,14 @@ class DashBord extends React.Component {
   }
 
  componentDidMount(){
+  const {DashBord,dispatch}=this.props;
 
+  // dispatch({
+  //   type:"App/getTotal",
+  //   payload:{a:2}
+  // }).then(()=>{
+  //   console.log(this.props)
+  // })
 
  }
   render(){
@@ -171,7 +178,6 @@ class DashBord extends React.Component {
             <div className={styles.HeadPart}>
                  <div className={styles.Float}>
                     <NodeDatas {...this.state.LO}/>
-
                     <ContainerBox {...DataSourceOne}>
                       <div className={styles.ca}>
                             <div>
@@ -186,10 +192,8 @@ class DashBord extends React.Component {
                                     </li>
                                   </ul>
                             </div>
-
                         <div>
                             <ul>
-
                                   {this.getPercentComputed().map((val,index)=>{
                                     return    <li key={index}>
                                                     <div>
@@ -200,17 +204,12 @@ class DashBord extends React.Component {
                                   })}
                             </ul>
                         </div>
-
                         </div>
                     </ContainerBox>
                  </div>
-
                 <div>
-
                   <WorldMap {...WorldMapDates}/>
-
                 </div>
-
                 <div className={styles.Float}>
                   <NodeDatas {...RO}/>
                   <ContainerBox {...DataSourceOne} leftText="最新交易">
@@ -223,8 +222,6 @@ class DashBord extends React.Component {
                           </div></li>
                           <li className={styles.Table}><span><TradTables/></span></li>
                       </ul>
-
-
                     </div>
                   </ContainerBox>
                 </div>
@@ -239,8 +236,6 @@ class DashBord extends React.Component {
                 <div className="containerA">
                   <ZxT width={"100%"} height={"280px"}/>
                 </div>
-
-
               </ContainerBox>
             </div>
 
@@ -252,4 +247,7 @@ class DashBord extends React.Component {
 // function mapStateToProps(state){
 //   return state
 // }
-export default DashBord;
+
+export default connect(({ App }) => ({
+  DashBord:App,
+}))(DashBord);

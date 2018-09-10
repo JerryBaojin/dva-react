@@ -1,5 +1,8 @@
 import React from 'react';
 import styles from './container.less';
+import { Select } from 'antd';
+const { Option } = Select;
+
 export default class box extends React.Component {
   constructor(props){
     super(props)
@@ -10,10 +13,14 @@ export default class box extends React.Component {
       height:"530px"
     }
   }
+  handleChange(value){
+      // console.log(this.props.HandleChangeType(value))
+  }
   componentDidMount(){
-    console.log(this.props)
+
   }
   render(){
+
     const {BoxStyle,leftText,showRight}=this.props;
 
     return(
@@ -21,7 +28,23 @@ export default class box extends React.Component {
         <div style={{height:"48px"}}>
           <span>{leftText}</span>
           {showRight?
-            <span>交易时期</span>
+              <span>
+
+              <Select
+                 className={styles.customSelect}
+                 defaultValue="lucy"
+                 style={{ width: 200 }}
+                 onChange={(val)=>this.handleChange(val)}
+               >
+
+                   <Option value="jack">最近一周</Option>
+                   <Option value="lucy">最近一月</Option>
+
+                   <Option value="Yiminghe">最近一年</Option>
+
+               </Select>
+
+              </span>
             :<span></span>
           }
 
