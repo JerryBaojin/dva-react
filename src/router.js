@@ -4,13 +4,13 @@ import Transaction from './routes/Transaction';
 import DashBord from './routes/DashBord';
 import NodeShow from './routes/NodeShow';
 import TabBar from './components/TabBar';
-
+import Img from './routes/Img';
 import BlockShow from './routes/BlockShow';
-import DataMap from './routes/DataMap';
+
 
 import AccountInfos from './routes/AccountInfos';
 
-
+import AnimateComponent from './routes/AnimateComponent';
 function RouterConfig({ history }) {
   return (
     <Router history={history}>
@@ -23,9 +23,8 @@ function RouterConfig({ history }) {
         <Route path="/transaction" exact component={Transaction} />
         <Route path="/accountInfos" exact component={AccountInfos} />
         <Route path="/BlockShow" exact component={BlockShow} />
-        <Route path="/datamap" exact component={DataMap} />
-
-
+        <Route path="/detail" exact component={Img} />
+  
       </Switch>
       </div>
     </Router>

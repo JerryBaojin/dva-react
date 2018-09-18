@@ -21,8 +21,8 @@ export default class box extends React.Component {
   }
   render(){
 
-    const {BoxStyle,leftText,showRight}=this.props;
-
+    let {BoxStyle,leftText,showRight}=this.props;
+      showRight=false;
     return(
       <div style={BoxStyle} className={`${styles.marginTop} boxShadow`}>
         <div style={{height:"48px"}}>
@@ -33,7 +33,7 @@ export default class box extends React.Component {
               <Select
                  className={styles.customSelect}
                  defaultValue="lucy"
-                 style={{ width: 200 }}
+                 style={{ width: 200}}
                  onChange={(val)=>this.handleChange(val)}
                >
 

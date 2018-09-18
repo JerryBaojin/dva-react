@@ -59,9 +59,10 @@ margin: 20px auto;
 }
 
 :global(.boxShadow){
+
   background: rgba(13,26,65,0.30);
   border: 1px solid rgba(34,165,247,0.30);
-  box-shadow: inset 0 0 20px 0 rgba(64,169,255,0.30);
+  box-shadow: inset 0 0 20px 0 #22a5f7;
   border-radius: 2px;
 }
 :global(.nd){

@@ -16,9 +16,7 @@ export class NodeDatas extends React.Component {
       text:"区块链节点数量"
     }
   }
-  componentWillReceiveProps(nextProps){
-  //  console.log(nextProps)
-  }
+
   render(){
       let {Left,Right}=this.props;
 

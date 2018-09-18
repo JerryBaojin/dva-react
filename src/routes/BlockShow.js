@@ -2,7 +2,9 @@ import React from 'react';
 import styles from './BlockShow.less';
 import { NodeDatas } from "../components/component/dataBox/Node";
 import ContainerBox from '../components/component/containerBox/container';
-import PupleTable from '../components/component/PupleTable/PupleTable'
+import PupleTable from '../components/component/PupleTable/PupleTable';
+import { connect } from 'dva';
+
 const DataSourceOne={
   BoxStyle:{
     width:"100%",
@@ -27,7 +29,7 @@ const DataSourceThree={
   leftText:"区块信息",
   showRight:false
 }
-export default class BlockShow extends React.Component {
+ class BlockShow extends React.Component {
   constructor(props) {
       super(props)
   }
@@ -45,7 +47,15 @@ export default class BlockShow extends React.Component {
     return datas;
   }
   handToCheck(val){
-    console.log(val)
+    console.log(this.props)
+    this.props.dispatch({
+      type:"App/redirect",
+      payload:val
+    })
+  }
+
+  componentDidMount(){
+    console.log(this)
   }
   render(){
     return(
@@ -105,3 +115,4 @@ export default class BlockShow extends React.Component {
     )
   }
 }
+export default connect()(BlockShow);

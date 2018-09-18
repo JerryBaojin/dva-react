@@ -3,7 +3,7 @@ import echarts from 'echarts';
 import axios from 'axios';
 import styles from './WorldMap.less';
 require('echarts/dist/extension/bmap.js');
-require('echarts/map/js/china.js');
+require('echarts/map/js/china-contour.js');
 
 export default class WorldMap extends  React.Component{
   constructor(props) {
@@ -17,7 +17,6 @@ export default class WorldMap extends  React.Component{
 
   }
   componentDidMount(){
-    return false;
     var myChart = echarts.init(document.getElementById('mainMap'));
 //所有的地理位置经纬度
 //数据地图删掉
@@ -169,6 +168,7 @@ var convertData = function (currentName) {
   for (var i = 0; i < orginData.length; i++) {
       var dataItem = orginData[i];
       var toCoord = JSON.parse(blockChain[dataItem.name]);
+
       if (fromCoord && toCoord) {
           res.push({
               fromName:currentName,
@@ -262,6 +262,7 @@ orginData.map(function (item, i) {
       });
 });
 
+console.log(series)
 const option = {
 
   title : {
@@ -302,196 +303,196 @@ const option = {
           }
       }]
   },
-
-  bmap: {
-      center: [104.07, 30.67],
-      zoom: 12,
-      roam: true,
-      mapStyle: {
-
-                styleJson: [
-   {
-             'featureType': 'land',     //调整土地颜色
-             'elementType': 'geometry',
-             'stylers': {
-                       'color': '#081734'
-             }
-   },
-   {
-             'featureType': 'building',   //调整建筑物颜色
-             'elementType': 'geometry',
-             'stylers': {
-                       'color': '#04406F'
-             }
-   },
-      {
-                 'featureType': 'building',   //调整建筑物标签是否可视
-                 'elementType': 'labels',
-                 'stylers': {
-                 'visibility': 'off'
-                 }
-       },
-       {
-                 'featureType': 'highway',     //调整高速道路颜色
-                 'elementType': 'geometry',
-                 'stylers': {
-                 'color': '#015B99'
-                 }
-       },
-       {
-                 'featureType': 'highway',    //调整高速名字是否可视
-                 'elementType': 'labels',
-                 'stylers': {
-                 'visibility': 'off'
-                 }
-       },
-       {
-                 'featureType': 'arterial',   //调整一些干道颜色
-                 'elementType': 'geometry',
-                 'stylers': {
-                 'color':'#003051'
-                 }
-       },
-       {
-                 'featureType': 'arterial',
-                 'elementType': 'labels',
-                 'stylers': {
-                 'visibility': 'off'
-                 }
-       },
-       {
-                 'featureType': 'green',
-                 'elementType': 'geometry',
-                 'stylers': {
-                 'visibility': 'off'
-                 }
-       },
-       {
-                 'featureType': 'water',
-                 'elementType': 'geometry',
-                 'stylers': {
-                           'color': '#044161'
-                 }
-       },
-       {
-                 'featureType': 'subway',    //调整地铁颜色
-                 'elementType': 'geometry.stroke',
-                 'stylers': {
-                 'color': '#003051'
-                 }
-       },
-       {
-                 'featureType': 'subway',
-                 'elementType': 'labels',
-                 'stylers': {
-                 'visibility': 'off'
-                 }
-       },
-       {
-                 'featureType': 'railway',
-                 'elementType': 'geometry',
-                 'stylers': {
-                 'visibility': 'off'
-                 }
-       },
-       {
-                 'featureType': 'railway',
-                 'elementType': 'labels',
-                 'stylers': {
-                 'visibility': 'off'
-                 }
-       },
-       {
-                 'featureType': 'all',     //调整所有的标签的边缘颜色
-                 'elementType': 'labels.text.stroke',
-                 'stylers': {
-                           'color': '#313131',
-                            'visibility': 'off'
-                 }
-       },
-       {
-                 'featureType': 'all',     //调整所有标签的填充颜色
-                 'elementType': 'labels.text.fill',
-                 'stylers': {
-                           'color': '#FFFFFF',
-                            'visibility': 'off'
-                 }
-       },
-       {
-                 'featureType': 'manmade',
-                 'elementType': 'geometry',
-                 'stylers': {
-                 'visibility': 'off'
-                 }
-       },
-       {
-                 'featureType': 'manmade',
-                 'elementType': 'labels',
-                 'stylers': {
-                 'visibility': 'off'
-                 }
-       },
-       {
-                 'featureType': 'local',
-                 'elementType': 'geometry',
-                 'stylers': {
-                 'visibility': 'off'
-                 }
-       },
-       {
-                 'featureType': 'local',
-                 'elementType': 'labels',
-                 'stylers': {
-                 'visibility': 'off'
-                 }
-       },
-       {
-                 'featureType': 'subway',
-                 'elementType': 'geometry',
-                 'stylers': {
-                           'lightness': -65
-                 }
-       },
-       {
-                 'featureType': 'railway',
-                 'elementType': 'all',
-                 'stylers': {
-                           'lightness': -40
-                 }
-       },
-       {
-                 'featureType': 'boundary',
-                 'elementType': 'geometry',
-                 'stylers': {
-                           'color': '#8b8787',
-                           'weight': '1',
-                           'lightness': -29
-                 }},
-                 {
-                                    featureType: "poi",
-                                    elementType: "all",
-                                    stylers: {
-                                        visibility: "off"
-                                    }
-                                }, {
-                                    featureType: "all",
-                                    elementType: "labels.icon",
-                                    stylers: {
-                                        visibility: "off"
-                                    }
-                                }, {
-                                    featureType: "poilabel",
-                                    elementType: "labels.text.fill",
-                                    stylers: {
-                                        color: "#2da0c6",
-                                        visibility: "off"
-                                    }
-                                }
-       ]
-     }
-  },
-
-
+  //
+  // bmap: {
+  //     center: [104.07, 30.67],
+  //     zoom: 12,
+  //     roam: true,
+  //     mapStyle: {
+  //
+  //               styleJson: [
+  //  {
+  //            'featureType': 'land',     //调整土地颜色
+  //            'elementType': 'geometry',
+  //            'stylers': {
+  //                      'color': '#081734'
+  //            }
+  //  },
+  //  {
+  //            'featureType': 'building',   //调整建筑物颜色
+  //            'elementType': 'geometry',
+  //            'stylers': {
+  //                      'color': '#04406F'
+  //            }
+  //  },
+  //     {
+  //                'featureType': 'building',   //调整建筑物标签是否可视
+  //                'elementType': 'labels',
+  //                'stylers': {
+  //                'visibility': 'off'
+  //                }
+  //      },
+  //      {
+  //                'featureType': 'highway',     //调整高速道路颜色
+  //                'elementType': 'geometry',
+  //                'stylers': {
+  //                'color': '#015B99'
+  //                }
+  //      },
+  //      {
+  //                'featureType': 'highway',    //调整高速名字是否可视
+  //                'elementType': 'labels',
+  //                'stylers': {
+  //                'visibility': 'off'
+  //                }
+  //      },
+  //      {
+  //                'featureType': 'arterial',   //调整一些干道颜色
+  //                'elementType': 'geometry',
+  //                'stylers': {
+  //                'color':'#003051'
+  //                }
+  //      },
+  //      {
+  //                'featureType': 'arterial',
+  //                'elementType': 'labels',
+  //                'stylers': {
+  //                'visibility': 'off'
+  //                }
+  //      },
+  //      {
+  //                'featureType': 'green',
+  //                'elementType': 'geometry',
+  //                'stylers': {
+  //                'visibility': 'off'
+  //                }
+  //      },
+  //      {
+  //                'featureType': 'water',
+  //                'elementType': 'geometry',
+  //                'stylers': {
+  //                          'color': '#044161'
+  //                }
+  //      },
+  //      {
+  //                'featureType': 'subway',    //调整地铁颜色
+  //                'elementType': 'geometry.stroke',
+  //                'stylers': {
+  //                'color': '#003051'
+  //                }
+  //      },
+  //      {
+  //                'featureType': 'subway',
+  //                'elementType': 'labels',
+  //                'stylers': {
+  //                'visibility': 'off'
+  //                }
+  //      },
+  //      {
+  //                'featureType': 'railway',
+  //                'elementType': 'geometry',
+  //                'stylers': {
+  //                'visibility': 'off'
+  //                }
+  //      },
+  //      {
+  //                'featureType': 'railway',
+  //                'elementType': 'labels',
+  //                'stylers': {
+  //                'visibility': 'off'
+  //                }
+  //      },
+  //      {
+  //                'featureType': 'all',     //调整所有的标签的边缘颜色
+  //                'elementType': 'labels.text.stroke',
+  //                'stylers': {
+  //                          'color': '#313131',
+  //                           'visibility': 'off'
+  //                }
+  //      },
+  //      {
+  //                'featureType': 'all',     //调整所有标签的填充颜色
+  //                'elementType': 'labels.text.fill',
+  //                'stylers': {
+  //                          'color': '#FFFFFF',
+  //                           'visibility': 'off'
+  //                }
+  //      },
+  //      {
+  //                'featureType': 'manmade',
+  //                'elementType': 'geometry',
+  //                'stylers': {
+  //                'visibility': 'off'
+  //                }
+  //      },
+  //      {
+  //                'featureType': 'manmade',
+  //                'elementType': 'labels',
+  //                'stylers': {
+  //                'visibility': 'off'
+  //                }
+  //      },
+  //      {
+  //                'featureType': 'local',
+  //                'elementType': 'geometry',
+  //                'stylers': {
+  //                'visibility': 'off'
+  //                }
+  //      },
+  //      {
+  //                'featureType': 'local',
+  //                'elementType': 'labels',
+  //                'stylers': {
+  //                'visibility': 'off'
+  //                }
+  //      },
+  //      {
+  //                'featureType': 'subway',
+  //                'elementType': 'geometry',
+  //                'stylers': {
+  //                          'lightness': -65
+  //                }
+  //      },
+  //      {
+  //                'featureType': 'railway',
+  //                'elementType': 'all',
+  //                'stylers': {
+  //                          'lightness': -40
+  //                }
+  //      },
+  //      {
+  //                'featureType': 'boundary',
+  //                'elementType': 'geometry',
+  //                'stylers': {
+  //                          'color': '#8b8787',
+  //                          'weight': '1',
+  //                          'lightness': -29
+  //                }},
+  //                {
+  //                                   featureType: "poi",
+  //                                   elementType: "all",
+  //                                   stylers: {
+  //                                       visibility: "off"
+  //                                   }
+  //                               }, {
+  //                                   featureType: "all",
+  //                                   elementType: "labels.icon",
+  //                                   stylers: {
+  //                                       visibility: "off"
+  //                                   }
+  //                               }, {
+  //                                   featureType: "poilabel",
+  //                                   elementType: "labels.text.fill",
+  //                                   stylers: {
+  //                                       color: "#2da0c6",
+  //                                       visibility: "off"
+  //                                   }
+  //                               }
+  //      ]
+  //    }
+  // },
+  //
+  //
   series: series
 };
 
@@ -504,9 +505,7 @@ myChart.setOption(option);
   render(){
     return(
 
-          <div id="mainMap" className={styles.mainMap} style={{width:"100%",height:"100%",overflow:"hidden"}}>
-              <img src={require("../../../assets/images/map.svg")}/>
-          </div>
+          <div id="mainMap" className={styles.mainMap} style={{width:"100%",height:"100%"}}></div>
 
     )
   }

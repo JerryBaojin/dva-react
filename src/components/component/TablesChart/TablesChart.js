@@ -1,8 +1,12 @@
 import React  from 'react';
 import echarts from 'echarts';
 import styles from './TablesChart.less';
-const
-option = {
+let TableDatas={
+  name:['用户A','用户B','用户C','用户D','用户E','用户F'],
+  data:[19325, 23438, 31000, 121594, 134141, 681807]
+}
+
+const option = {
     tooltip: {
         trigger: 'axis',
         axisPointer: {
@@ -48,12 +52,11 @@ option = {
                                 color: '#FFFFFF'
                             }
                         },
-        data: ['用户A','用户B','用户C','用户D','用户E','用户F','用户F'],
+        data:  TableDatas.name
     },
     series: [
         {
             type: 'bar',
-
             itemStyle:{
                 normal:{
                     color:"#22A5F7",
@@ -65,17 +68,36 @@ option = {
                 }
             },
             barWidth:12,
-            data: [19325, 23438, 31000, 121594, 134141, 681807,681807]
+            data: TableDatas.data
         }
     ]
 };
-
 
 
 export default class TablesChart extends  React.Component{
   componentDidMount(){
     var myChart = echarts.init(document.getElementById('tables'));
     myChart.setOption(option)
+      let counter=100;
+    setInterval(function(){
+      TableDatas.name.splice(0,1);
+      TableDatas.data.splice(0,1);
+      ++counter;
+
+      TableDatas.data.push(counter)
+      TableDatas.name.push(counter)
+
+            myChart.setOption({
+                yAxis:{
+                    data:TableDatas.name
+                },
+                series:[{
+                    name:'成交',
+                    data:TableDatas.data
+                }]
+            });
+        },1000)
+
   }
   render(){
     return(
